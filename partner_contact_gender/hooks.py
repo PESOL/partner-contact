@@ -11,7 +11,7 @@ def post_init_hook(cr, pool):
         env.ref('base.res_partner_title_miss'),
         'male': env.ref('base.res_partner_title_mister')
     }
-    for gender, titles in gender_mappings.iteritems():
+    for gender, titles in gender_mappings.items():
         env['res.partner'].with_context(active_test=False).search([
             ('title', 'in', titles.ids),
         ]).write({
